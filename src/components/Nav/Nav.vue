@@ -14,7 +14,7 @@
       </div>
       <div class="usa-width-one-fourth" style="padding-top: 5px;">
         <button class="lf-btn-log" v-if="!isLoggedIn()" @click="handleLogin()">Log In</button>
-        <span v-if="isLoggedIn()">Welcome: {{userName}}, {{userEmail}}</span>
+        <span v-if="isLoggedIn()">Welcome: {{userName}}</span>
         <button class="lf-btn-log" v-if="isLoggedIn()" @click="handleLogout()">Log out </button>
       </div>
     </div>

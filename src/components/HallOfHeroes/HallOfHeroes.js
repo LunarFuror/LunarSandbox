@@ -4,7 +4,8 @@
 import _ from 'lodash'
 import axios from 'axios'
 import { getAccessToken } from '../../utils/auth'
-var baseUrl = 'http://localhost:3000'
+import { getApiUrl } from '../../utils/config'
+var baseUrl = getApiUrl();
 
 export default {
   data: () => ({
@@ -108,6 +109,7 @@ export default {
   },
 
   mounted () {
-    this.getHeroes()
+    this.getHeroes();
+    baseUrl = this.getApiUrl();
   }
 }

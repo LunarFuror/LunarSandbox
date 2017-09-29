@@ -114,11 +114,6 @@ export function hashUser () {
         alert('err2')
         console.log(err)
       }
-      alert(
-        'nickname: ' + user.nickname +
-          '\nname:' + user.name +
-          '\nemail: ' + user.email
-      )
       localStorage.setItem(USER_INFO, user)
       localStorage.setItem(USER_NICKNAME, user.nickname)
       localStorage.setItem(USER_EMAIL, user.email)
