@@ -12,6 +12,9 @@ const CLIENT_DOMAIN = 'lunarfuror.auth0.com'
 const REDIRECT = 'http://localhost:8080/callback'
 const SCOPE = 'openid email profile'
 const AUDIENCE = 'http://www.lunarfuror.com'
+const USER_INFO = {}
+const USER_NICKNAME = ''
+const USER_EMAIL = ''
 
 var auth = new auth0.WebAuth({
   clientID: CLIENT_ID,
@@ -56,6 +59,18 @@ export function getAccessToken () {
   return localStorage.getItem(ACCESS_TOKEN_KEY)
 }
 
+export function getUserInfo () {
+  return localStorage.getItem(USER_INFO)
+}
+
+export function getUserNickname () {
+  return localStorage.getItem(USER_NICKNAME)
+}
+
+export function getUserEmail () {
+  return localStorage.getItem(USER_EMAIL)
+}
+
 function clearIdToken () {
   localStorage.removeItem(ID_TOKEN_KEY)
 }
@@ -85,6 +100,31 @@ export function setIdToken () {
 export function isLoggedIn () {
   const idToken = getIdToken()
   return !!idToken && !isTokenExpired(idToken)
+}
+
+export function hashUser () {
+  auth.parseHash({ hash: window.location.hash }, function (err, authResult) {
+    if (err) {
+      alert('err1')
+      console.log(err)
+    }
+
+    auth.client.userInfo(authResult.accessToken, function (err, user) {
+      if (err) {
+        alert('err2')
+        console.log(err)
+      }
+      alert(
+        'nickname: ' + user.nickname +
+          '\nname:' + user.name +
+          '\nemail: ' + user.email
+      )
+      localStorage.setItem(USER_INFO, user)
+      localStorage.setItem(USER_NICKNAME, user.nickname)
+      localStorage.setItem(USER_EMAIL, user.email)
+      window.location.href = '/'
+    })
+  })
 }
 
 function getTokenExpirationDate (encodedToken) {

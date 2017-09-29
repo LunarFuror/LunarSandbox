@@ -14,31 +14,11 @@
       </div>
       <div class="usa-width-one-fourth" style="padding-top: 5px;">
         <button class="lf-btn-log" v-if="!isLoggedIn()" @click="handleLogin()">Log In</button>
+        <span v-if="isLoggedIn()">Welcome: {{userName}}, {{userEmail}}</span>
         <button class="lf-btn-log" v-if="isLoggedIn()" @click="handleLogout()">Log out </button>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-  /**
-    * Created by grayson on 9/14/17.
-   */
-  import { isLoggedIn, login, logout } from '../../utils/auth.js'
-  export default {
-    name: 'app-nav',
-    methods: {
-      handleLogin () {
-        login()
-      },
-      handleLogout () {
-        if (confirm('Are you sure you want to log out?')) {
-          logout()
-        }
-      },
-      isLoggedIn () {
-        return isLoggedIn()
-      }
-    }
-  }
-</script>
+<script src="./Nav.js" type="text/javascript"></script>

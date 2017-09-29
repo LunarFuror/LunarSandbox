@@ -1,17 +1,23 @@
 <template>
+  <div>
+    {{response}}
+  </div>
 </template>
+
 <script>
+  import { setIdToken, setAccessToken, hashUser } from '../utils/auth'
 
-import { setIdToken, setAccessToken } from '../utils/auth'
-
-export default {
-  name: '',
-  mounted () {
-    this.$nextTick(() => {
-      setAccessToken()
-      setIdToken()
-      window.location.href = '/'
-    })
+  export default {
+    name: '',
+    data: () => ({
+      response: ''
+    }),
+    mounted () {
+      this.$nextTick(() => {
+        setAccessToken()
+        setIdToken()
+        hashUser()
+      })
+    }
   }
-}
 </script>
