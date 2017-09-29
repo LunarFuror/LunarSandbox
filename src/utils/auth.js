@@ -9,7 +9,8 @@ const ACCESS_TOKEN_KEY = 'access_token'
 
 const CLIENT_ID = 'gsUd2zzRFzjeOBg4km5TUI97emK7HukD'
 const CLIENT_DOMAIN = 'lunarfuror.auth0.com'
-const REDIRECT = 'http://localhost:8080/callback'
+const REDIRECT_LOCAL = 'http://localhost:8080/callback'
+const REDIRECT_LIVE = 'https://lunarsandbox.firebaseapp.com/callback'
 const SCOPE = 'openid email profile'
 const AUDIENCE = 'http://www.lunarfuror.com'
 const USER_INFO = {}
@@ -22,12 +23,21 @@ var auth = new auth0.WebAuth({
 })
 
 export function login () {
-  auth.authorize({
-    responseType: 'token id_token',
-    redirectUri: REDIRECT,
-    audience: AUDIENCE,
-    scope: SCOPE
-  })
+  if (document.domain === 'localhost') {
+    auth.authorize({
+      responseType: 'token id_token',
+      redirectUri: REDIRECT_LOCAL,
+      audience: AUDIENCE,
+      scope: SCOPE
+    })
+  } else {
+    auth.authorize({
+      responseType: 'token id_token',
+      redirectUri: REDIRECT_LIVE,
+      audience: AUDIENCE,
+      scope: SCOPE
+    })
+  }
 }
 
 var router = new Router({
