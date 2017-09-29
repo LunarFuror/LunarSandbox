@@ -3,8 +3,8 @@ const LIVE_API_ADDRESS = 'https://lunar-api.herokuapp.com'
 
 export function getApiUrl () {
   if (document.domain === 'localhost') {
-    return localStorage.getItem(LOCAL_API_ADDRESS)
+    return LOCAL_API_ADDRESS
   } else {
-    return localStorage.getItem(LIVE_API_ADDRESS)
+    return LIVE_API_ADDRESS
   }
 }
