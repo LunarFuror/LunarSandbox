@@ -7,6 +7,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/Hello">Hello World</a></li>
             <li><a href="/NameGenerator">Name Generator</a></li>
+            <li><a href="/DiceRoller">Dice Roller</a></li>
             <li v-if="isLoggedIn()"><a href="/HallOfHeroes">Hall Of Heroes</a></li>
             <li style="padding-top: 6px; padding-right:6px; float: right;">
               <button class="lf-btn-log" v-if="!isLoggedIn()" @click="handleLogin()">Log In</button>

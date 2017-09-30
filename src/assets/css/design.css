@@ -155,6 +155,14 @@ hr.lf-hr{
   margin-top: 2px;
   margin-bottom: 2px;
 }
+div.lf-flex-form{
+  display:inline-flex;
+  flex-direction:row;
+}
+span.lf-dice-label{
+  font-size: 26px;
+  padding-top: 12px;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

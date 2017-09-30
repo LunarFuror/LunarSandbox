@@ -6,6 +6,7 @@ import Hello from '@/components/Hello/Hello.vue'
 import Home from '@/components/Home/Home.vue'
 import NameGenerator from '@/components/NameGenerator/NameGenerator.vue'
 import HallOfHeroes from '@/components/HallOfHeroes/HallOfHeroes.vue'
+import DiceRoller from '@/components/DiceRoller/DiceRoller.vue'
 import Callback from '@/components/callback.vue'
 import { requireAuth } from '../utils/auth'
 
@@ -34,6 +35,11 @@ export default new Router({
       name: 'HallOfHeroes',
       beforeEnter: requireAuth,
       component: HallOfHeroes
+    },
+    {
+      path: '/DiceRoller',
+      name: 'DiceRoller',
+      component: DiceRoller
     },
     {
       path: '/callback',
