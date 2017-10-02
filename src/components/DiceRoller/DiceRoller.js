@@ -6,5 +6,8 @@ export default {
   data: () => ({
     numDice: 0,
     diceType: 'standard'
-  })
+  }),
+  methods:{
+    
+  }
 }
