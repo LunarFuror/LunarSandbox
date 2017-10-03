@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <img v-if="loading" src="../../assets/img/loading.gif"/>
     <div class="usa-width-one-half">
       <div class="lf-inline-div" v-if="viewState == 'Add'">
         <input v-model="name" placeholder="Name"/>
@@ -20,12 +20,13 @@
         <button @click="switchToAddHero()" class="lf-btn">Cancel</button>
         <button @click="deleteHero()" class="lf-btn-warning">Delete Hero</button>
       </div>
-      <ul v-if="errors && errors.length">
+      <ul v-if="errors && errors.length && false">
         <li v-for="error of errors">
           {{error}}
         </li>
       </ul>
     </div>
+
     <div class="usa-width-one-half">
       <ul v-if="posts && posts.length">
         <li v-for="post of posts">
@@ -52,6 +53,13 @@
 
           <br/>
 
+        </li>
+      </ul>
+      <ul v-else-if="!loading">
+        <li>
+          <div class="lf-standard-div">
+            No data found.
+          </div>
         </li>
       </ul>
     </div>

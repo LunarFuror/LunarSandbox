@@ -9,6 +9,7 @@ var baseUrl = ''
 
 export default {
   data: () => ({
+    loading: true,
     posts: [],
     errors: [],
     name: '',
@@ -110,5 +111,8 @@ export default {
   mounted () {
     baseUrl = getApiUrl();
     this.getHeroes();
+  },
+  updated () {
+    this.loading = false;
   }
 }

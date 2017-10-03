@@ -16,58 +16,72 @@
             <div style="display: table;">
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">D4:</span>
+                  <span class="lf-dice-label">D4:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:5em" min="0" max="999">&nbsp;<span class="lf-dice-label">+</span>&nbsp;<input type="number" style="width:5em" min="-999" max="999" >
+                  <input type="number" style="width:5em" min="0" max="999">
+                  <span class="lf-dice-label">&nbsp;+&nbsp;</span>
+                  <input type="number" style="width:5em" min="-999" max="999" >
                 </div>
               </div>
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">D6:</span>
+                  <span class="lf-dice-label">D6:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:5em" min="0" max="999">&nbsp;<span class="lf-dice-label">+</span>&nbsp;<input type="number" style="width:5em" min="-999" max="999" >
+                  <input type="number" style="width:5em" min="0" max="999">
+                  <span class="lf-dice-label">&nbsp;+&nbsp;</span>
+                  <input type="number" style="width:5em" min="-999" max="999" >
                 </div>
               </div>
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">D8:</span>
+                  <span class="lf-dice-label">D8:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:5em" min="0" max="999">&nbsp;<span class="lf-dice-label">+</span>&nbsp;<input type="number" style="width:5em" min="-999" max="999" >
+                  <input type="number" style="width:5em" min="0" max="999">
+                  <span class="lf-dice-label">&nbsp;+&nbsp;</span>
+                  <input type="number" style="width:5em" min="-999" max="999" >
                 </div>
               </div>
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">D10:</span>
+                  <span class="lf-dice-label">D10:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:5em" min="0" max="999">&nbsp;<span class="lf-dice-label">+</span>&nbsp;<input type="number" style="width:5em" min="-999" max="999" >
+                  <input type="number" style="width:5em" min="0" max="999">
+                  <span class="lf-dice-label">&nbsp;+&nbsp;</span>
+                  <input type="number" style="width:5em" min="-999" max="999" >
                 </div>
               </div>
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">D12:</span>
+                  <span class="lf-dice-label">D12:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:5em" min="0" max="999">&nbsp;<span class="lf-dice-label">+</span>&nbsp;<input type="number" style="width:5em" min="-999" max="999" >
+                  <input type="number" style="width:5em" min="0" max="999">
+                  <span class="lf-dice-label">&nbsp;+&nbsp;</span>
+                  <input type="number" style="width:5em" min="-999" max="999" >
                 </div>
               </div>
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">D20:</span>
+                  <span class="lf-dice-label">D20:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:5em" min="0" max="999">&nbsp;<span class="lf-dice-label">+</span>&nbsp;<input type="number" style="width:5em" min="-999" max="999" >
+                  <input type="number" style="width:5em" min="0" max="999">
+                  <span class="lf-dice-label">&nbsp;+&nbsp;</span>
+                  <input type="number" style="width:5em" min="-999" max="999" >
                 </div>
               </div>
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">D100:</span>
+                  <span class="lf-dice-label">D100:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:5em" min="0" max="999">&nbsp;<span class="lf-dice-label">+</span>&nbsp;<input type="number" style="width:5em" min="-999" max="999" >
+                  <input type="number" style="width:5em" min="0" max="999">
+                  <span class="lf-dice-label">&nbsp;+&nbsp;</span>
+                  <input type="number" style="width:5em" min="-999" max="999" >
                 </div>
               </div>
             </div>
@@ -86,7 +100,7 @@
             <div style="display: table;">
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">Yellow:</span>
+                  <span class="lf-dice-label">Yellow:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
                   <input type="number" style="width:4em" min="0" max="9">
@@ -94,7 +108,7 @@
               </div>
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">Green:</span>
+                  <span class="lf-dice-label">Green:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
                   <input type="number" style="width:4em" min="0" max="9">
@@ -102,7 +116,7 @@
               </div>
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">Blue:</span>
+                  <span class="lf-dice-label">Blue:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
                   <input type="number" style="width:4em" min="0" max="9">
@@ -111,7 +125,7 @@
               <div style="display: table-row;"><br/></div>
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">Red:</span>
+                  <span class="lf-dice-label">Red:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
                   <input type="number" style="width:4em" min="0" max="9">
@@ -119,7 +133,7 @@
               </div>
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">Purple:</span>
+                  <span class="lf-dice-label">Purple:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
                   <input type="number" style="width:4em" min="0" max="9">
@@ -127,7 +141,7 @@
               </div>
               <div style="display: table-row;">
                 <div style="display: table-cell;">
-                  <span class="lf-dice-label">Black:</span>
+                  <span class="lf-dice-label">Black:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
                   <input type="number" style="width:4em" min="0" max="9">
