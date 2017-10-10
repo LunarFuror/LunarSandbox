@@ -118,7 +118,7 @@
                   <span class="lf-dice-label">Yellow:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:4em" min="0" max="9">
+                  <input type="number" v-model="numSkillYel" style="width:4em" min="0" max="9">
                 </div>
               </div>
               <div style="display: table-row;">
@@ -126,7 +126,7 @@
                   <span class="lf-dice-label">Green:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:4em" min="0" max="9">
+                  <input type="number" v-model="numSkillGre" style="width:4em" min="0" max="9">
                 </div>
               </div>
               <div style="display: table-row;">
@@ -134,7 +134,7 @@
                   <span class="lf-dice-label">Blue:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:4em" min="0" max="9">
+                  <input type="number" v-model="numSkillBlu" style="width:4em" min="0" max="9">
                 </div>
               </div>
               <div style="display: table-row;"><br/></div>
@@ -143,7 +143,7 @@
                   <span class="lf-dice-label">Red:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:4em" min="0" max="9">
+                  <input type="number" v-model="numSkillRed" style="width:4em" min="0" max="9">
                 </div>
               </div>
               <div style="display: table-row;">
@@ -151,7 +151,7 @@
                   <span class="lf-dice-label">Purple:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:4em" min="0" max="9">
+                  <input type="number" v-model="numSkillPur" style="width:4em" min="0" max="9">
                 </div>
               </div>
               <div style="display: table-row;">
@@ -159,14 +159,14 @@
                   <span class="lf-dice-label">Black:&nbsp;</span>
                 </div>
                 <div style="display: flex;">
-                  <input type="number" style="width:4em" min="0" max="9">
+                  <input type="number" v-model="numSkillBla" style="width:4em" min="0" max="9">
                 </div>
               </div>
             </div>
           </div>
           <div>
             <br/><hr class="lf-hr"/><br/>
-            <button class="lf-btn">Roll</button>
+            <button class="lf-btn" @click="rollSkill()">Roll</button>
           </div>
         </div>
       </div>
@@ -174,39 +174,47 @@
 
 
     <div class="usa-width-one-half">
-      <div class="lf-standard-div" v-if="standardRollResults && standardRollResults.length">
-        <button class="lf-btn" @click="clearResults()">Clear Results</button>
-        <br/><br/><hr class="lf-hr"/>
-        <ul>
-          <li v-for="result of standardRollResults">
-            <span v-if="result.d4Result"> {{result.d4Result}}<br/></span>
-            <span v-if="result.d6Result"> {{result.d6Result}}<br/></span>
-            <span v-if="result.d6Result"> {{result.d8Result}}<br/></span>
-            <span v-if="result.d6Result"> {{result.d10Result}}<br/></span>
-            <span v-if="result.d6Result"> {{result.d12Result}}<br/></span>
-            <span v-if="result.d6Result"> {{result.d20Result}}<br/></span>
-            <span v-if="result.d6Result"> {{result.d100Result}}<br/></span>
-            <br/>
-          </li>
-        </ul>
-      </div>
-      <div class="lf-standard-div" v-else-if="skillRollResults && skillRollResults.length">
-        <button class="lf-btn" @click="clearResults()">Clear Results</button>
-        <br/><br/><hr class="lf-hr"/>
-        <ul>
-          <li v-for="result of skillRollResults">
-            <span v-if="result.yelResult"> {{result.yelResult}}<br/></span>
-            <span v-if="result.greResult"> {{result.greResult}}<br/></span>
-            <span v-if="result.bluResult"> {{result.bluResult}}<br/></span>
-            <span v-if="result.redResult"> {{result.redResult}}<br/></span>
-            <span v-if="result.purResult"> {{result.purResult}}<br/></span>
-            <span v-if="result.blaResult"> {{result.blaResult}}<br/></span>
-            <br/>
-          </li>
-        </ul>
-      </div>
-      <div class="lf-standard-div" v-else>
-        Results will appear here.
+      <div class="lf-standard-div" >
+        <div v-if="(standardRollResults && standardRollResults.length) || (skillRollResults && skillRollResults.length)">
+          <button class="lf-btn" @click="clearResults()">Clear Results</button>
+          <br/><br/><hr class="lf-hr"/>
+        </div>
+
+        <div v-if="standardRollResults && standardRollResults.length">
+          <ul>
+            <li v-for="result of standardRollResults">
+              <span v-if="result.d4Result"> {{result.d4Result}}<br/></span>
+              <span v-if="result.d6Result"> {{result.d6Result}}<br/></span>
+              <span v-if="result.d8Result"> {{result.d8Result}}<br/></span>
+              <span v-if="result.d10Result"> {{result.d10Result}}<br/></span>
+              <span v-if="result.d12Result"> {{result.d12Result}}<br/></span>
+              <span v-if="result.d20Result"> {{result.d20Result}}<br/></span>
+              <span v-if="result.d100Result"> {{result.d100Result}}<br/></span>
+              <br/>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lf-standard-div" v-if="skillRollResults && skillRollResults.length">
+          <ul>
+            <li v-for="result of skillRollResults">
+              <span v-if="result.yelResult"> {{result.yelResult}}<br/></span>
+              <span v-if="result.greResult"> {{result.greResult}}<br/></span>
+              <span v-if="result.bluResult"> {{result.bluResult}}<br/></span>
+              <span v-if="result.redResult"> {{result.redResult}}<br/></span>
+              <span v-if="result.purResult"> {{result.purResult}}<br/></span>
+              <span v-if="result.blaResult"> {{result.blaResult}}<br/></span>
+              <span v-if="result.triumphResult > 0"> Total Triumph: {{result.triumphResult}}<br/></span>
+              <span v-if="result.successResult > 0"> Total Success: {{result.successResult}}<br/></span>
+              <span v-if="result.advantageResult > 0"> Total Advantage: {{result.advantageResult}}<br/></span>
+              <br/><br/>
+            </li>
+          </ul>
+        </div>
+
+        <div v-if="!((standardRollResults && standardRollResults.length) || (skillRollResults && skillRollResults.length))">
+          Results will appear here.
+        </div>
       </div>
     </div>
   </div>

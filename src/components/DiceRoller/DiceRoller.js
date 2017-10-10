@@ -31,9 +31,18 @@ export default {
   methods:{
     clearResults: function () {
       this.standardRollResults = [];
+      this.skillRollResults = [];
     },
     rollStandard: function () {
-      var fullRollResult = {d4Result: '', d6Result: '', d8Result: '', d10Result: '', d12Result: '', d20Result: '', d100Result: ''};
+      var fullStandardRollResult = {
+        d4Result: '',
+        d6Result: '',
+        d8Result: '',
+        d10Result: '',
+        d12Result: '',
+        d20Result: '',
+        d100Result: ''
+      };
 
       if(this.numStandardD4 > 0){
         var totalD4rolls = 0;
@@ -51,8 +60,8 @@ export default {
           }
         }
         var totalD4result = totalD4rolls + parseInt(this.modStandardD4);
-        d4Output += ') + ' + this.modStandardD4 + ' = ' + totalD4result + '\r\n';
-        fullRollResult.d4Result = d4Output;
+        d4Output += ') + ' + this.modStandardD4 + ' = ' + totalD4result;
+        fullStandardRollResult.d4Result = d4Output;
       }
       
       if(this.numStandardD6 > 0){
@@ -71,8 +80,8 @@ export default {
           }
         }
         var totalD6result = totalD6rolls + parseInt(this.modStandardD6);
-        d6Output += ') + ' + this.modStandardD6 + ' = ' + totalD6result + '\r\n';
-        fullRollResult.d6Result = d6Output;
+        d6Output += ') + ' + this.modStandardD6 + ' = ' + totalD6result;
+        fullStandardRollResult.d6Result = d6Output;
       }
       
       if(this.numStandardD8 > 0){
@@ -91,8 +100,8 @@ export default {
           }
         }
         var totalD8result = totalD8rolls + parseInt(this.modStandardD8);
-        d8Output += ') + ' + this.modStandardD8 + ' = ' + totalD8result + '\r\n';
-        fullRollResult.d8Result = d8Output;
+        d8Output += ') + ' + this.modStandardD8 + ' = ' + totalD8result;
+        fullStandardRollResult.d8Result = d8Output;
       }
       
       if(this.numStandardD10 > 0){
@@ -111,8 +120,8 @@ export default {
           }
         }
         var totalD10result = totalD10rolls + parseInt(this.modStandardD10);
-        d10Output += ') + ' + this.modStandardD10 + ' = ' + totalD10result + '\r\n';
-        fullRollResult.d10Result = d10Output;
+        d10Output += ') + ' + this.modStandardD10 + ' = ' + totalD10result;
+        fullStandardRollResult.d10Result = d10Output;
       }
       
       if(this.numStandardD12 > 0){
@@ -131,8 +140,8 @@ export default {
           }
         }
         var totalD12result = totalD12rolls + parseInt(this.modStandardD12);
-        d12Output += ') + ' + this.modStandardD12 + ' = ' + totalD12result + '\r\n';
-        fullRollResult.d12Result = d12Output;
+        d12Output += ') + ' + this.modStandardD12 + ' = ' + totalD12result;
+        fullStandardRollResult.d12Result = d12Output;
       }
       
       if(this.numStandardD20 > 0){
@@ -151,8 +160,8 @@ export default {
           }
         }
         var totalD20result = totalD20rolls + parseInt(this.modStandardD20);
-        d20Output += ') + ' + this.modStandardD20 + ' = ' + totalD20result + '\r\n';
-        fullRollResult.d20Result = d20Output;
+        d20Output += ') + ' + this.modStandardD20 + ' = ' + totalD20result;
+        fullStandardRollResult.d20Result = d20Output;
       }
 
       if(this.numStandardD100 > 0){
@@ -171,65 +180,199 @@ export default {
           }
         }
         var totalD100result = totalD100rolls + parseInt(this.modStandardD100);
-        d100Output += ') + ' + this.modStandardD100 + ' = ' + totalD100result + '\r\n';
-        fullRollResult.d100Result = d100Output;
+        d100Output += ') + ' + this.modStandardD100 + ' = ' + totalD100result;
+        fullStandardRollResult.d100Result = d100Output;
       }
-      this.standardRollResults.push(fullRollResult);
+      this.standardRollResults.push(fullStandardRollResult);
     },
+      
     rollSkill: function () {
-      var fullRollResult = {yelResult: '', greResult: '', bluResult: '', redResult: '', purResult: '', blaResult: '', };
+      var fullSkillRollResult = {
+        yelResult: '',
+        greResult: '',
+        bluResult: '',
+        redResult: '',
+        purResult: '',
+        blaResult: '',
+        triumphResult: 0,
+        successResult: 0,
+        advantageResult: 0,
+        despairResult: 0,
+        failureResult: 0,
+        disadvantageResult: 0
+      };
       var totalSuccess = 0;
       var totalAdvantage = 0;
       var totalTriumph = 0;
       var totalFailure = 0;
       var totalDisadvantage = 0;
       var totalDispair = 0;
+      
       if(this.numSkillYel > 0){
         var totalYelSuccess = 0;
         var totalYelAdvantage = 0;
         var totalYelTriumph = 0;
         var yelOutput = 'Yellow: (';
-        for(var yeli = 0; yeli > this.numSkillYel; yeli ++){
-          yelRoll = Math.floor(Math.random() * 12) +1;
+        for(var yeli = 0; yeli < this.numSkillYel; yeli ++){
+          var yelRoll = Math.floor(Math.random() * 12) +1;
           switch(yelRoll){
-            case 1: yelOutput += 'blank, '
+            case 1: yelOutput += 'blank';
               break;
-            case 2:
-            case 1: yelOutput += 'blank, '
+            case 2: yelOutput += '1S';
+              totalYelSuccess += 1;
               break;
-            case 3:
-            case 1: yelOutput += 'blank, '
+            case 3: yelOutput += '1S';
+              totalYelSuccess += 1;
               break;
-            case 4:
-            case 1: yelOutput += 'blank, '
+            case 4: yelOutput += '2S';
+              totalYelSuccess += 2;
               break;
-            case 5:
-            case 1: yelOutput += 'blank, '
+            case 5: yelOutput += '2S';
+              totalYelSuccess += 2;
               break;
-            case 6:
-            case 1: yelOutput += 'blank, '
+            case 6: yelOutput += '1A';
+              totalYelAdvantage += 1;
               break;
-            case 7:
-            case 1: yelOutput += 'blank, '
+            case 7: yelOutput += '1S 1A';
+              totalYelSuccess += 1;
+              totalYelAdvantage += 1;
               break;
-            case 8:
-            case 1: yelOutput += 'blank, '
+            case 8: yelOutput += '1S 1A';
+              totalYelSuccess += 1;
+              totalYelAdvantage += 1;
               break;
-            case 9:
-            case 1: yelOutput += 'blank, '
+            case 9: yelOutput += '1S 1A';
+              totalYelSuccess += 1;
+              totalYelAdvantage += 1;
               break;
-            case 10:
-            case 1: yelOutput += 'blank, '
+            case 10: yelOutput += '2A';
+              totalYelAdvantage += 2;
               break;
-            case 11:
-            case 1: yelOutput += 'blank, '
+            case 11: yelOutput += '2A';
+              totalYelAdvantage += 2;
               break;
-            case 12:
-            case 1: yelOutput += 'blank, '
+            case 12: yelOutput += '1T';
+              totalYelTriumph += 1;
               break;
           }
+          if(yeli != this.numSkillYel -1){
+            yelOutput += ', ';
+          }
         }
+        yelOutput += ')'
+        if(totalYelTriumph > 0){
+          yelOutput += ' T:' + totalYelTriumph;
+        }
+        if(totalYelSuccess > 0){
+          yelOutput += ' S:' + totalYelSuccess;
+        }
+        if(totalYelAdvantage > 0){
+          yelOutput += ' A:' + totalYelAdvantage;
+        }
+        totalTriumph += totalYelTriumph;
+        totalSuccess += totalYelSuccess;
+        totalAdvantage += totalYelSuccess;
+        fullSkillRollResult.yelResult = yelOutput;
+        //process rolls
       }
+      
+      if(this.numSkillGre > 0){
+        var totalGreSuccess = 0;
+        var totalGreAdvantage = 0;
+        var greOutput = 'Green: (';
+        for(var grei = 0; grei < this.numSkillGre; grei ++){
+          var greRoll = Math.floor(Math.random() * 8) +1;
+          switch(greRoll){
+            case 1: greOutput += 'blank';
+              break;
+            case 2: greOutput += '1S';
+              totalGreSuccess += 1;
+              break;
+            case 3: greOutput += '1S';
+              totalGreSuccess += 1;
+              break;
+            case 4: greOutput += '2S';
+              totalGreSuccess += 2;
+              break;
+            case 5: greOutput += '1A';
+              totalGreAdvantage += 1;
+              break;
+            case 6: greOutput += '1A';
+              totalGreAdvantage += 1;
+              break;
+            case 7: greOutput += '1S 1A';
+              totalGreSuccess += 1;
+              totalGreAdvantage += 1;
+              break;
+            case 8: greOutput += '2A';
+              totalGreAdvantage += 2;
+              break;
+          }
+          if(grei != this.numSkillGre -1){
+            greOutput += ', ';
+          }
+        }
+        greOutput += ')'
+        if(totalGreSuccess > 0){
+          greOutput += ' S:' + totalGreSuccess;
+        }
+        if(totalGreAdvantage > 0){
+          greOutput += ' A:' + totalGreAdvantage;
+        }
+        totalSuccess += totalGreSuccess;
+        totalAdvantage += totalGreSuccess;
+        fullSkillRollResult.greResult = greOutput;
+        //process rolls
+      }
+      
+      if(this.numSkillBlu > 0){
+        var totalBluSuccess = 0;
+        var totalBluAdvantage = 0;
+        var bluOutput = 'Blue: (';
+        for(var blui = 0; blui < this.numSkillBlu; blui ++){
+          var bluRoll = Math.floor(Math.random() * 6) +1;
+          switch(bluRoll){
+            case 1: bluOutput += 'blank';
+              break;
+            case 2: bluOutput += 'blank';
+              break;
+            case 3: bluOutput += '2A';
+              totalBluAdvantage += 2;
+              break;
+            case 4: bluOutput += '1A';
+              totalBluAdvantage += 1;
+              break;
+            case 5: bluOutput += '1S 1A';
+              totalBluSuccess += 1;
+              totalBluAdvantage += 1;
+              break;
+            case 6: bluOutput += '1A';
+              totalBluSuccess += 1;
+              break;
+          }
+          if(blui != this.numSkillBlu -1){
+            bluOutput += ', ';
+          }
+        }
+        bluOutput += ')'
+        if(totalBluSuccess > 0){
+          bluOutput += ' S:' + totalBluSuccess;
+        }
+        if(totalBluAdvantage > 0){
+          bluOutput += ' A:' + totalBluAdvantage;
+        }
+        totalSuccess += totalBluSuccess;
+        totalAdvantage += totalBluSuccess;
+        fullSkillRollResult.bluResult = bluOutput;
+        //process rolls
+      }
+      //more dice
+      
+      //process totals
+      fullSkillRollResult.triumphResult = totalTriumph;
+      fullSkillRollResult.successResult = totalSuccess;
+      fullSkillRollResult.advantageResult = totalAdvantage;
+      this.skillRollResults.push(fullSkillRollResult);
     }
   }
 }
