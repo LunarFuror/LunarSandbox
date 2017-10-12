@@ -204,9 +204,12 @@
               <span v-if="result.redResult"> {{result.redResult}}<br/></span>
               <span v-if="result.purResult"> {{result.purResult}}<br/></span>
               <span v-if="result.blaResult"> {{result.blaResult}}<br/></span>
-              <span v-if="result.triumphResult > 0"> Total Triumph: {{result.triumphResult}}<br/></span>
-              <span v-if="result.successResult > 0"> Total Success: {{result.successResult}}<br/></span>
-              <span v-if="result.advantageResult > 0"> Total Advantage: {{result.advantageResult}}<br/></span>
+              <span v-if="result.triumphResult != 0"> Total Triumph: {{result.triumphResult}}<br/></span>
+              <span v-if="result.successResult != 0"> Total Success: {{result.successResult}}<br/></span>
+              <span v-if="result.advantageResult != 0"> Total Advantage: {{result.advantageResult}}<br/></span>
+              <span v-if="result.despairResult != 0"> Total Despair: {{result.despairResult}}<br/></span>
+              <span v-if="result.failureResult != 0"> Total Failure: {{result.failureResult}}<br/></span>
+              <span v-if="result.disadvantageResult != 0"> Total Disadvantage: {{result.disadvantageResult}}<br/></span>
               <br/><br/>
             </li>
           </ul>
