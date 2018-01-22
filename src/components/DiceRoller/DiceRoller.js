@@ -63,7 +63,7 @@ export default {
         d4Output += ') + ' + this.modStandardD4 + ' = ' + totalD4result;
         fullStandardRollResult.d4Result = d4Output;
       }
-      
+
       if(this.numStandardD6 > 0){
         var totalD6rolls = 0;
         var d6Roll = 0;
@@ -83,7 +83,7 @@ export default {
         d6Output += ') + ' + this.modStandardD6 + ' = ' + totalD6result;
         fullStandardRollResult.d6Result = d6Output;
       }
-      
+
       if(this.numStandardD8 > 0){
         var totalD8rolls = 0;
         var d8Roll = 0;
@@ -103,7 +103,7 @@ export default {
         d8Output += ') + ' + this.modStandardD8 + ' = ' + totalD8result;
         fullStandardRollResult.d8Result = d8Output;
       }
-      
+
       if(this.numStandardD10 > 0){
         var totalD10rolls = 0;
         var d10Roll = 0;
@@ -123,7 +123,7 @@ export default {
         d10Output += ') + ' + this.modStandardD10 + ' = ' + totalD10result;
         fullStandardRollResult.d10Result = d10Output;
       }
-      
+
       if(this.numStandardD12 > 0){
         var totalD12rolls = 0;
         var d12Roll = 0;
@@ -143,7 +143,7 @@ export default {
         d12Output += ') + ' + this.modStandardD12 + ' = ' + totalD12result;
         fullStandardRollResult.d12Result = d12Output;
       }
-      
+
       if(this.numStandardD20 > 0){
         var totalD20rolls = 0;
         var d20Roll = 0;
@@ -185,7 +185,7 @@ export default {
       }
       this.standardRollResults.push(fullStandardRollResult);
     },
-      
+
     rollSkill: function () {
       var fullSkillRollResult = {
         yelResult: '',
@@ -207,7 +207,7 @@ export default {
       var totalFailure = 0;
       var totalDisadvantage = 0;
       var totalDispair = 0;
-      
+
       if(this.numSkillYel > 0){
         var totalYelSuccess = 0;
         var totalYelAdvantage = 0;
@@ -271,11 +271,11 @@ export default {
         }
         totalTriumph += totalYelTriumph;
         totalSuccess += totalYelSuccess;
-        totalAdvantage += totalYelSuccess;
+        totalAdvantage += totalYelAdvantage;
         fullSkillRollResult.yelResult = yelOutput;
         //process rolls
       }
-      
+
       if(this.numSkillGre > 0){
         var totalGreSuccess = 0;
         var totalGreAdvantage = 0;
@@ -320,11 +320,11 @@ export default {
           greOutput += ' A:' + totalGreAdvantage;
         }
         totalSuccess += totalGreSuccess;
-        totalAdvantage += totalGreSuccess;
+        totalAdvantage += totalGreAdvantage;
         fullSkillRollResult.greResult = greOutput;
         //process rolls
       }
-      
+
       if(this.numSkillBlu > 0){
         var totalBluSuccess = 0;
         var totalBluAdvantage = 0;
@@ -362,12 +362,12 @@ export default {
           bluOutput += ' A:' + totalBluAdvantage;
         }
         totalSuccess += totalBluSuccess;
-        totalAdvantage += totalBluSuccess;
+        totalAdvantage += totalBluAdvantage;
         fullSkillRollResult.bluResult = bluOutput;
         //process rolls
       }
       //more dice
-      
+
       //process totals
       fullSkillRollResult.triumphResult = totalTriumph;
       fullSkillRollResult.successResult = totalSuccess;
